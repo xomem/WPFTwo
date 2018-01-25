@@ -1,0 +1,90 @@
+﻿<Page x:Class="WpfApp.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp"
+      mc:Ignorable="d" 
+       d:DesignHeight="600" d:DesignWidth="1070"
+      Title="MainMenu">
+
+    <Grid Width="1064" Height="571" VerticalAlignment="Bottom" Background="White" Loaded="Grid_Loaded">
+        <Label Content="Добавить"  Margin="106,37,872,0" VerticalAlignment="Top" Height="33" FontSize="16"/>
+        <Button x:Name="addEmploy" Content="Добавить сотрудника" HorizontalAlignment="Left" Margin="51,94,0,0" VerticalAlignment="Top" Width="208" Height="40" FontSize="16" Cursor="Hand" Click="addEmploy_Click" />
+        <Button x:Name="addTech" Content="Добавить технику" HorizontalAlignment="Left" Margin="51,162,0,0" VerticalAlignment="Top" Width="208" Height="40" FontSize="16" Cursor="Hand"/>
+        <Button x:Name="addSysCharacter"    HorizontalAlignment="Left" Margin="51,228,0,0" VerticalAlignment="Top" Width="208" Height="66" Cursor="Hand">
+            <TextBlock Text="Добавить истемные характеристики"
+               TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Button x:Name="addHDD"    HorizontalAlignment="Left" Margin="51,319,0,0" VerticalAlignment="Top" Width="208" Height="66" FontSize="16" Cursor="Hand">
+            <TextBlock Text="Добавить жёсткий диск"
+               TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+        <Label Content="Найти"  Margin="381,37,612,0" VerticalAlignment="Top" Height="33" FontSize="16"/>
+        <Button x:Name="findTechByEmploy"    HorizontalAlignment="Left" Margin="306,94,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+            <TextBlock Text="Поиск техники по сотруднику"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Button x:Name="findEmployByCSO"    HorizontalAlignment="Left" Margin="306,162,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+            <TextBlock Text="Поиск сотрудника по номеру ЦСО"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Button x:Name="findEmployByRoom"    HorizontalAlignment="Left" Margin="306,241,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand" Click="findEmployByRoom_Click">
+            <TextBlock Text="Поиск сотрудника по номеру кабинета"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Button x:Name="findHDDByEmploy"    HorizontalAlignment="Left" Margin="306,319,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+            <TextBlock Text="Поиск жёсткий диск по сотруднику"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Label Content="Изменить"  Margin="630,37,337,0" VerticalAlignment="Top" Height="33" FontSize="16"/>
+
+        <Button x:Name="changeEmploy"    HorizontalAlignment="Left" Margin="560,94,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+            <TextBlock Text="Изменить данные о сотруднике"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Button x:Name="changeTechInfo"    HorizontalAlignment="Left" Margin="560,162,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+            <TextBlock Text="Изменить данные о технеке"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Button x:Name="changeSystemCharac"    HorizontalAlignment="Left" Margin="560,319,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+            <TextBlock Text="Изменить системные характеристики"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Button x:Name="changeHDDIonfo"    HorizontalAlignment="Left" Margin="560,241,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+            <TextBlock Text="Изменить данные о жёстком диске"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+
+        <Label Content="Удалить"  Margin="880,37,97,0" VerticalAlignment="Top" Height="33" FontSize="16"/>
+        <Button x:Name="removeEmploy"    HorizontalAlignment="Left" Margin="815,94,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+            <TextBlock Text="Удалить сотрудника"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Button x:Name="removeTech"    HorizontalAlignment="Left" Margin="815,162,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+            <TextBlock Text="Удалить технику"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Button x:Name="removeHDD"    HorizontalAlignment="Left" Margin="815,241,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+            <TextBlock Text="Удалить жёсткий диск"
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+        </Button>
+        <Button x:Name="allEmploy"    HorizontalAlignment="Left" Margin="51,460,0,0" VerticalAlignment="Top" Width="208" Height="43" FontSize="16" Cursor="Hand" Click="allEmploy_Click">
+            <TextBlock Text="Список всех сотрудников"
+                TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+        <Button x:Name="allHDD"    HorizontalAlignment="Left" Margin="306,460,0,0" VerticalAlignment="Top" Width="208" Height="43" FontSize="16" Cursor="Hand" Click="allHDD_Click">
+            <TextBlock Text="Список всех жёстких дисков"
+                TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+        <Button x:Name="allTech"    HorizontalAlignment="Left" Margin="560,460,0,0" VerticalAlignment="Top" Width="208" Height="43" FontSize="16" Cursor="Hand" Click="allTech_Click">
+            <TextBlock Text="Список всёй техники"
+                TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+        <Button x:Name="allCharac"    HorizontalAlignment="Left" Margin="815,460,0,0" VerticalAlignment="Top" Width="208" Height="43" FontSize="16" Cursor="Hand" Click="allCharac_Click">
+            <TextBlock Text="Список всех характиристик"
+                TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+        <Label Content="Простая выборка"  Margin="470,403,451,0" VerticalAlignment="Top" Height="33" FontSize="16"/>
+    </Grid>
+</Page>

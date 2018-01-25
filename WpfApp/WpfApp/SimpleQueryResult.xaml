@@ -1,0 +1,23 @@
+﻿<Page x:Class="WpfApp.SimpleQueryResult"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1070"
+      Title="SimpleQueryResult">
+
+    <Grid Width="1064" Height="571" VerticalAlignment="Bottom" Background="White">
+        <DataGrid ItemsSource="{Binding}" CanUserAddRows="False" AutoGenerateColumns="True" x:Name="SQRDataGridXAML" HorizontalAlignment="Left" Height="441" Margin="10,89,0,0" VerticalAlignment="Top" Width="1044">
+        </DataGrid>
+
+
+        <Button x:Name="goBack"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="58" Height="50" FontSize="16" Cursor="Hand" Click="goBack_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Resources/back.png" Stretch="Uniform" Height="43" Width="54" />
+                <!--<TextBlock Text="&lt; Назад" TextWrapping="Wrap" TextAlignment="Center"/>-->
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

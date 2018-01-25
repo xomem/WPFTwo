@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MainDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MainDatabaseModelStoreContainer">
+          </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MainDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="hardDrive">
+          <Key>
+            <PropertyRef Name="PCID" />
+          </Key>
+          <Property Name="PCID" Type="Int32" Nullable="false" />
+          <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="serialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="space" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="technic" Relationship="MainDatabaseModel.technichardDrive" FromRole="hardDrive" ToRole="technic" />
+        </EntityType>
+        <EntityType Name="normTech">
+          <Key>
+            <PropertyRef Name="techID" />
+            <PropertyRef Name="employID" />
+          </Key>
+          <Property Name="techID" Type="Int32" Nullable="false" />
+          <Property Name="employID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="employment" Relationship="MainDatabaseModel.employmentnormTech" FromRole="normTech" ToRole="employment" />
+          <NavigationProperty Name="technic" Relationship="MainDatabaseModel.technicnormTech" FromRole="normTech" ToRole="technic" />
+        </EntityType>
+        <EntityType Name="systemCharacteristic">
+          <Key>
+            <PropertyRef Name="PCID" />
+          </Key>
+          <Property Name="PCID" Type="Int32" Nullable="false" />
+          <Property Name="processorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="processorModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RAM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="capacity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="operatingSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="technics" Relationship="MainDatabaseModel.systemCharacteristictechnic" FromRole="systemCharacteristic" ToRole="technic" />
+        </EntityType>
+        <EntityType Name="technic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="businessNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="serialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="normTeches" Relationship="MainDatabaseModel.technicnormTech" FromRole="technic" ToRole="normTech" />
+          <NavigationProperty Name="systemCharacteristic" Relationship="MainDatabaseModel.systemCharacteristictechnic" FromRole="technic" ToRole="systemCharacteristic" />
+          <NavigationProperty Name="hardDrives" Relationship="MainDatabaseModel.technichardDrive" FromRole="technic" ToRole="hardDrive" />
+        </EntityType>
+        <EntityContainer Name="MainDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="hardDrives" EntityType="Self.hardDrive" />
+          <EntitySet Name="normTeches" EntityType="Self.normTech" />
+          <EntitySet Name="systemCharacteristics" EntityType="Self.systemCharacteristic" />
+          <EntitySet Name="technics" EntityType="Self.technic" />
+          <EntitySet Name="employments" EntityType="MainDatabaseModel.employment" />
+          <EntitySet Name="rooms" EntityType="MainDatabaseModel.room" />
+          <AssociationSet Name="roomemployment" Association="MainDatabaseModel.roomemployment">
+            <End Role="room" EntitySet="rooms" />
+            <End Role="employment" EntitySet="employments" />
+          </AssociationSet>
+          <AssociationSet Name="employmentnormTech" Association="MainDatabaseModel.employmentnormTech">
+            <End Role="employment" EntitySet="employments" />
+            <End Role="normTech" EntitySet="normTeches" />
+          </AssociationSet>
+          <AssociationSet Name="technicnormTech" Association="MainDatabaseModel.technicnormTech">
+            <End Role="technic" EntitySet="technics" />
+            <End Role="normTech" EntitySet="normTeches" />
+          </AssociationSet>
+          <AssociationSet Name="systemCharacteristictechnic" Association="MainDatabaseModel.systemCharacteristictechnic">
+            <End Role="systemCharacteristic" EntitySet="systemCharacteristics" />
+            <End Role="technic" EntitySet="technics" />
+          </AssociationSet>
+          <AssociationSet Name="technichardDrive" Association="MainDatabaseModel.technichardDrive">
+            <End Role="technic" EntitySet="technics" />
+            <End Role="hardDrive" EntitySet="hardDrives" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="employment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="room" Relationship="MainDatabaseModel.roomemployment" FromRole="employment" ToRole="room" />
+          <NavigationProperty Name="normTeches" Relationship="MainDatabaseModel.employmentnormTech" FromRole="employment" ToRole="normTech" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="employID" />
+          </Key>
+          <Property Name="employID" Type="Int32" Nullable="false" />
+          <Property Name="roomNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="employments" Relationship="MainDatabaseModel.roomemployment" FromRole="room" ToRole="employment" />
+        </EntityType>
+        <Association Name="roomemployment">
+          <End Type="MainDatabaseModel.room" Role="room" Multiplicity="1" />
+          <End Type="MainDatabaseModel.employment" Role="employment" Multiplicity="*" />
+        </Association>
+        <Association Name="employmentnormTech">
+          <End Type="MainDatabaseModel.employment" Role="employment" Multiplicity="1" />
+          <End Type="MainDatabaseModel.normTech" Role="normTech" Multiplicity="*" />
+        </Association>
+        <Association Name="technicnormTech">
+          <End Type="MainDatabaseModel.technic" Role="technic" Multiplicity="1" />
+          <End Type="MainDatabaseModel.normTech" Role="normTech" Multiplicity="*" />
+        </Association>
+        <Association Name="systemCharacteristictechnic">
+          <End Type="MainDatabaseModel.systemCharacteristic" Role="systemCharacteristic" Multiplicity="1" />
+          <End Type="MainDatabaseModel.technic" Role="technic" Multiplicity="1" />
+        </Association>
+        <Association Name="technichardDrive">
+          <End Type="MainDatabaseModel.technic" Role="technic" Multiplicity="1" />
+          <End Type="MainDatabaseModel.hardDrive" Role="hardDrive" Multiplicity="1" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MainDatabaseModelStoreContainer" CdmEntityContainer="MainDatabaseEntities">
+          </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
