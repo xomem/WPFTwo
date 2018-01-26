@@ -1,0 +1,14 @@
+C:\Users\Edward\source\repos\WpfApp\WpfApp\bin\Release\WpfApp.exe.config
+C:\Users\Edward\source\repos\WpfApp\WpfApp\bin\Release\WpfApp.exe
+C:\Users\Edward\source\repos\WpfApp\WpfApp\bin\Release\WpfApp.pdb
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\MainWindow.g.cs
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\App.g.cs
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\WpfApp_MarkupCompile.cache
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\WpfApp_MarkupCompile.lref
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\MainWindow.baml
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\WpfApp.g.resources
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\WpfApp.Properties.Resources.resources
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\WpfApp.csproj.GenerateResource.Cache
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\WpfApp.csproj.CoreCompileInputs.cache
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\WpfApp.exe
+C:\Users\Edward\source\repos\WpfApp\WpfApp\obj\Release\WpfApp.pdb

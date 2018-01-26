@@ -20,10 +20,10 @@ namespace WpfApp
         //static string ConnectionAdres = @"Data source=(LocalDB)\MSSQLLocalDB;Attachdbfilename=|DataDirectory|\MainDatabase.mdf;‌​Integrated Security=True;MultipleActiveResultSets=True;";
         static string ConnectionAdres = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\MainDatabase.mdf;Integrated Security=True";
 
-        public static void addEmploy(string name, string surname, string patronymic)
+        public static void addSystemCharcterisitcs(string pcID, string processorName, string processorModel, string RAM, string opasity, string os)
         {
             var query =
-            $"INSERT INTO employment (surname, name, patronymic) VALUES({surname}, {surname},{patronymic});";
+            $"INSERT INTO [systemCharacteristic] (PCID, processorName, processorModel, RAM, capacity, operatingSystem) VALUES('{pcID}', '{processorName}','{processorModel}', '{RAM}', '{opasity}','{os}');";
             using (SqlConnection connection = new SqlConnection(ConnectionAdres))
             {
                 connection.Open();
@@ -34,6 +34,59 @@ namespace WpfApp
 
         }
 
+        public static void addEmploy(string name, string surname, string patronymic)
+        {
+            var query =
+            $"INSERT INTO [employment] (surname, name, patronymic) VALUES('{name}', '{surname}','{patronymic}');";
+            using (SqlConnection connection = new SqlConnection(ConnectionAdres))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+        }
+
+        public static bool DeleteTech(string id)
+        {
+            var query = $"DELETE FROM [technic] WHERE ID = '{id}';";
+            bool result = false;
+            using (SqlConnection connection = new SqlConnection(ConnectionAdres))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                result = command.ExecuteNonQuery() >= 1;
+                connection.Close();
+            }
+            return result;
+        }
+        public static bool DeleteHDD(string id)
+        {
+            var query = $"DELETE FROM [employment] WHERE ID = '{id}';";
+            bool result = false;
+            using (SqlConnection connection = new SqlConnection(ConnectionAdres))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                result = command.ExecuteNonQuery() >= 1;
+                connection.Close();
+            }
+            return result;
+        }
+        public static bool DeleteEmploy(string id)
+        {
+            var query = $"DELETE FROM [hardDrive] WHERE PCID = '{id}';";
+            bool result = false;
+            using (SqlConnection connection = new SqlConnection(ConnectionAdres))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                result = command.ExecuteNonQuery() >= 1;
+                connection.Close();
+            }
+            return result;
+        }
         public static DataTable employByRoom(string roomNumber)
         {
 

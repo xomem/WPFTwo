@@ -89,6 +89,28 @@ namespace WpfApp
             MainWin.Title = "Добавить сотрудника";
         }
 
+       
+        private bool HasRows(DataTable room)
+        {
+            return room.Rows.Count > 0;
+        }
+
+        private void addSysCharacter_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddSystemCharacteristics());
+            MainWin.Title = "Добавить сотрудника";
+        }
+
+        private void removeTech_Click(object sender, RoutedEventArgs e)
+        {
+            SearchEngine searchEngine = new SearchEngine();
+            string str;
+            bool hasInput = searchEngine.TryGetTech("Удаление техника", out str);
+            if (Querys.DeleteHDD(str))
+            {
+                MessageBox.Show("Запись удалена");
+            }
+        }
         private void findEmployByRoom_Click(object sender, RoutedEventArgs e)
         {
             SearchEngine searchEngine = new SearchEngine();
@@ -109,9 +131,26 @@ namespace WpfApp
             }
         }
 
-        private bool HasRows(DataTable room)
+        private void removeHDD_Click(object sender, RoutedEventArgs e)
         {
-            return room.Rows.Count > 0;
+            SearchEngine searchEngine = new SearchEngine();
+            string str;
+            bool hasInput = searchEngine.TryGetHARDID("Удаление жёсткого диска", out str);
+            if (Querys.DeleteHDD(str))
+            {
+                MessageBox.Show("Запись удалена");
+            }
+        }
+
+        private void removeEmploy_Click(object sender, RoutedEventArgs e)
+        {
+            SearchEngine searchEngine = new SearchEngine();
+            string str;
+            bool hasInput = searchEngine.TryGetEmploy("Удалить сотрудника", out str);
+            if (Querys.DeleteHDD(str))
+            {
+                MessageBox.Show("Запись удалена");
+            }
         }
     }
 }

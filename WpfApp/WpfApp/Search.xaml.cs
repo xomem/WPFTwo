@@ -28,15 +28,6 @@ namespace WpfApp
             InitializeComponent();
             this.Title = title;
         }
-        public enum searchType
-        {
-            techByEmploy,
-            employByCSO,
-            employByRoom,
-            hddByEmploy
-        }
-
-        public searchType _searchType;
 
         private void search_Click(object sender, RoutedEventArgs e)
         {

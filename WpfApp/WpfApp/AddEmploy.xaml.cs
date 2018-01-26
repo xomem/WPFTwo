@@ -18,7 +18,7 @@ namespace WpfApp
     /// <summary>
     /// Interaction logic for AddEmploy.xaml
     /// </summary>
-    public partial class AddEmploy : UserControl
+    public partial class AddEmploy : Page
     {
         //private Querys querys;
         Querys querys = new Querys();
@@ -34,7 +34,7 @@ namespace WpfApp
         }
         private void goBack_Click(object sender, RoutedEventArgs e)
         {
-            //NavigationService.GoBack();
+            NavigationService.GoBack();
         }
     }
 }

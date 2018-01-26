@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Поиск" Height="180" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Label x:Name="TitleLabel" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="TitleLabel" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18"/>
         <TextBox x:Name="TextBox" HorizontalAlignment="Left" Cursor="Hand" Height="32" Margin="10,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="340" FontSize="18"/>
         <Button x:Name="search" Content="Поиск" HorizontalAlignment="Center" Margin="355,49,10,68" VerticalAlignment="Center" Cursor="Hand" Width="77" Height="32" FontSize="18" Click="search_Click"/>
         <Label x:Name="ErrorLabel" Content="" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" FontSize="18" Foreground="Red"/>
