@@ -16,7 +16,7 @@
             <TextBlock Text="Добавить системные характеристики"
                TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
         </Button>
-        <Button x:Name="addHDD"    HorizontalAlignment="Left" Margin="51,319,0,0" VerticalAlignment="Top" Width="208" Height="66" FontSize="16" Cursor="Hand">
+        <Button x:Name="addHDD"    HorizontalAlignment="Left" Margin="51,319,0,0" VerticalAlignment="Top" Width="208" Height="53" FontSize="16" Cursor="Hand" Click="addHDD_Click">
             <TextBlock Text="Добавить жёсткий диск"
                TextWrapping="Wrap" TextAlignment="Center"/>
         </Button>
@@ -33,25 +33,25 @@
             <TextBlock Text="Поиск сотрудника по номеру кабинета"
                 TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
         </Button>
-        <Button x:Name="findHDDByEmploy"    HorizontalAlignment="Left" Margin="306,319,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+        <Button x:Name="findHDDByEmploy"    HorizontalAlignment="Left" Margin="306,319,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand" Click="findHDDByEmploy_Click">
             <TextBlock Text="Поиск жёсткий диск по сотруднику"
                 TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
         </Button>
         <Label Content="Изменить"  Margin="630,37,337,0" VerticalAlignment="Top" Height="33" FontSize="16"/>
 
-        <Button x:Name="changeEmploy"    HorizontalAlignment="Left" Margin="560,94,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+        <Button x:Name="changeEmploy"    HorizontalAlignment="Left" Margin="560,94,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand" Click="changeEmploy_Click">
             <TextBlock Text="Изменить данные о сотруднике"
                 TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
         </Button>
-        <Button x:Name="changeTechInfo"    HorizontalAlignment="Left" Margin="560,162,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+        <Button x:Name="changeTechInfo"    HorizontalAlignment="Left" Margin="560,162,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand" Click="changeTechInfo_Click">
             <TextBlock Text="Изменить данные о технеке"
                 TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
         </Button>
-        <Button x:Name="changeSystemCharac"    HorizontalAlignment="Left" Margin="560,319,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+        <Button x:Name="changeSystemCharac"    HorizontalAlignment="Left" Margin="560,319,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand" Click="changeSystemCharac_Click">
             <TextBlock Text="Изменить системные характеристики"
                 TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
         </Button>
-        <Button x:Name="changeHDDIonfo"    HorizontalAlignment="Left" Margin="560,241,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand">
+        <Button x:Name="changeHDDIonfo"    HorizontalAlignment="Left" Margin="560,241,0,0" VerticalAlignment="Top" Width="208" Height="53" Cursor="Hand" Click="changeHDDIonfo_Click">
             <TextBlock Text="Изменить данные о жёстком диске"
                 TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
         </Button>

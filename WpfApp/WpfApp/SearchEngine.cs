@@ -50,5 +50,14 @@ namespace WpfApp
             Search search = new Search(title);
             search.ErrorLabel.Content = "Совпадений не найдено";
         }
+        public bool TryGetSurname(string title, out string name)
+        {
+            Search search = new Search(title);
+            search.TitleLabel.Content = "Введите фамилию сотрудника";
+            search.ShowDialog();
+            name = search.Input;
+
+            return !String.IsNullOrWhiteSpace(name);
+        }
     }
 }

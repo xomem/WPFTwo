@@ -30,7 +30,19 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Querys.addEmploy(nameBox.Text, srunameBox.Text, patronymicBox.Text);
+            if(nameBox.Text != "" && srunameBox.Text != "")
+            {
+                Querys.addEmploy(nameBox.Text, srunameBox.Text, patronymicBox.Text);
+                MessageBox.Show("Запись успешно добавленна");
+            }
+            else if(nameBox.Text == "")
+            {
+                errorLabel.Content = "Это поле должно быть заполненно";
+            }
+            else
+            {
+                errorLabelSur.Content = "Это поле должно быть заполненно";
+            }
         }
         private void goBack_Click(object sender, RoutedEventArgs e)
         {

@@ -85,3 +85,13 @@ C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\bin\Debug\zh-Hans\Microsoft.Build.res
 C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\bin\Debug\zh-Hant\Microsoft.Build.resources.dll
 C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\Delete.g.cs
 C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\Delete.baml
+C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\updateEmploy.g.cs
+C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\updateEmploy.baml
+C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\updateTech.g.cs
+C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\updateTech.baml
+C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\updateHDD.g.cs
+C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\updateHDD.baml
+C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\updateSysCharacteristics.g.cs
+C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\updateSysCharacteristics.baml
+C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\addHDD.g.cs
+C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\obj\Debug\addHDD.baml

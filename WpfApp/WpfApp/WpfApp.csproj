@@ -90,6 +90,9 @@
     <Compile Include="AddEmploy.xaml.cs">
       <DependentUpon>AddEmploy.xaml</DependentUpon>
     </Compile>
+    <Compile Include="addHDD.xaml.cs">
+      <DependentUpon>addHDD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddSystemCharacteristics.xaml.cs">
       <DependentUpon>AddSystemCharacteristics.xaml</DependentUpon>
     </Compile>
@@ -130,7 +133,23 @@
     <Compile Include="technic.cs">
       <DependentUpon>MainModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="updateEmploy.xaml.cs">
+      <DependentUpon>updateEmploy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="updateHDD.xaml.cs">
+      <DependentUpon>updateHDD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="updateSysCharacteristics.xaml.cs">
+      <DependentUpon>updateSysCharacteristics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="updateTech.xaml.cs">
+      <DependentUpon>updateTech.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddEmploy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addHDD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +192,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SimpleQueryResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updateEmploy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updateHDD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updateSysCharacteristics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updateTech.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

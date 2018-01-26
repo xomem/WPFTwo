@@ -29,7 +29,15 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Querys.addSystemCharcterisitcs(pcIDBOX.Text, prcessorFirm.Text, prcessorModel.Text, RAM.Text, opacty.Text, OS.Text);
+            if(pcIDBOX.Text != "")
+            {
+                Querys.addSystemCharcterisitcs(pcIDBOX.Text, prcessorFirm.Text, prcessorModel.Text, RAM.Text, opacty.Text, OS.Text);
+                MessageBox.Show("Запись успешно добавленна");
+            }
+            else
+            {
+                errorLabel.Content = "Это поле должоно быть заполнено";
+            }
         }
         private void goBack_Click(object sender, RoutedEventArgs e)
         {

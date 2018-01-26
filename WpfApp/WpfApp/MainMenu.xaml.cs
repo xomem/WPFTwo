@@ -101,16 +101,7 @@ namespace WpfApp
             MainWin.Title = "Добавить сотрудника";
         }
 
-        private void removeTech_Click(object sender, RoutedEventArgs e)
-        {
-            SearchEngine searchEngine = new SearchEngine();
-            string str;
-            bool hasInput = searchEngine.TryGetTech("Удаление техника", out str);
-            if (Querys.DeleteHDD(str))
-            {
-                MessageBox.Show("Запись удалена");
-            }
-        }
+
         private void findEmployByRoom_Click(object sender, RoutedEventArgs e)
         {
             SearchEngine searchEngine = new SearchEngine();
@@ -136,20 +127,88 @@ namespace WpfApp
             SearchEngine searchEngine = new SearchEngine();
             string str;
             bool hasInput = searchEngine.TryGetHARDID("Удаление жёсткого диска", out str);
-            if (Querys.DeleteHDD(str))
+            if (hasInput)
             {
-                MessageBox.Show("Запись удалена");
+                if (Querys.DeleteHDD(str))
+                {
+                    MessageBox.Show("Запись удалена");
+                }
             }
         }
-
+        private void removeTech_Click(object sender, RoutedEventArgs e)
+        {
+            SearchEngine searchEngine = new SearchEngine();
+            string str;
+            bool hasInput = searchEngine.TryGetTech("Удаление техника", out str);
+            if (hasInput)
+            {
+                if (Querys.DeleteTech(str))
+                {
+                    MessageBox.Show("Запись удалена");
+                }
+            }          
+        }
         private void removeEmploy_Click(object sender, RoutedEventArgs e)
         {
             SearchEngine searchEngine = new SearchEngine();
             string str;
             bool hasInput = searchEngine.TryGetEmploy("Удалить сотрудника", out str);
-            if (Querys.DeleteHDD(str))
+            if (hasInput)
             {
-                MessageBox.Show("Запись удалена");
+                if (Querys.DeleteEmploy(str))
+                {
+                    MessageBox.Show("Запись удалена");
+                }
+            }
+        }
+
+        private void changeEmploy_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new updateEmploy());
+            MainWin.Title = "Изменить данные о сотруднике";
+        }
+
+        private void changeTechInfo_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new updateTech());
+            MainWin.Title = "Изменить данные о техники";
+        }
+
+        private void changeHDDIonfo_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new updateHDD());
+            MainWin.Title = "Изменить данные о жестком диске";
+        }
+
+        private void changeSystemCharac_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new updateSysCharacteristics());
+            MainWin.Title = "Изменить данные о системных характиристиках";
+        }
+
+        private void addHDD_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new addHDD());
+            MainWin.Title = "Добавить жёсткий диск";
+        }
+
+        private void findHDDByEmploy_Click(object sender, RoutedEventArgs e)
+        {
+            SearchEngine searchEngine = new SearchEngine();
+            string str;
+            bool hasInput = searchEngine.TryGetSurname("Поиск жесткого диска по сотруднику", out str);
+            if (hasInput)
+            {
+                var Rooms = Querys.hardDriveByEmploy(str);
+                if (HasRows(Rooms))
+                {
+                    SimpleQueryResult = new SimpleQueryResult(Rooms);
+                    NavigationService.Navigate(SimpleQueryResult);
+                }
+                else
+                {
+                    searchEngine.checkError("Поиск жесткого диска по сотруднику");
+                }
             }
         }
     }

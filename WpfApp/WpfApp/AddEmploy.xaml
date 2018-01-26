@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="571" d:DesignWidth="1064">
 
-    <Grid Width="1064" Height="571" VerticalAlignment="Bottom" Background="White">
+    <Grid Width="1064" Height="571" VerticalAlignment="Bottom" Background="White" Cursor="Hand">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -49,18 +49,17 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Text="{Binding Patronymic, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Width="500" Margin="0,28,138,-12" Grid.RowSpan="3" Height="28" />
+            <Label Content="" HorizontalAlignment="Left" Margin="77,24,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Width="349" Background="White" Foreground="Red" Name="errorLabel"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="77,17,0,0" VerticalAlignment="Top" Width="349" Background="White" Foreground="Red" x:Name="errorLabelSur" Grid.Row="2"/>
 
         </Grid>
-        <Button
-            HorizontalAlignment="Right"
 
-            Command="{Binding SaveCommand}"
-            Content="Добавить" Margin="0,488,10,58" FontSize="16" Width="84" Click="Button_Click" />
         <Button x:Name="goBack"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="58" Height="50" FontSize="16" Cursor="Hand" Click="goBack_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Resources/back.png" Stretch="Uniform" Height="43" Width="54" />
                 <!--<TextBlock Text="&lt; Назад" TextWrapping="Wrap" TextAlignment="Center"/>-->
             </StackPanel>
         </Button>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="954,395,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="Button_Click"/>
     </Grid>
 </Page>
