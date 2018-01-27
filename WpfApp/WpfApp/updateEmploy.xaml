@@ -33,7 +33,7 @@
             <TextBlock
                 Grid.Row="2"
                 Grid.Column="0"
-                Text="Имя" FontSize="16" Margin="77,0,0,-4" Grid.RowSpan="3" Grid.ColumnSpan="2" />
+                Text="Имя" FontSize="16" Margin="72,0,5,-4" Grid.RowSpan="3" Grid.ColumnSpan="2" />
             <TextBlock
                 Grid.Row="4"
                 Grid.Column="0"
