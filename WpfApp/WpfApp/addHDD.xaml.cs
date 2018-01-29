@@ -27,15 +27,7 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (pcid.Text != "")
-            {
-                Querys.addHDD(pcid.Text, company.Text, serialNumber.Text, space.Text);
-                MessageBox.Show("Запись успешно добавленна");
-            }
-            else
-            {
-                errorLabel.Content = "Это поле должоно быть заполнено";
-            }
+           
 
         }
         private void goBack_Click(object sender, RoutedEventArgs e)
@@ -45,7 +37,15 @@ namespace WpfApp
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            if (pcid.Text != "")
+            {
+                Querys.addHDD(pcid.Text, company.Text, serialNumber.Text, space.Text);
+                MessageBox.Show("Запись успешно добавленна");
+            }
+            else
+            {
+                errorLabel.Content = "Это поле должоно быть заполнено";
+            }
         }
     }
 }

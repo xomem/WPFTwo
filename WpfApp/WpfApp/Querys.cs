@@ -161,7 +161,7 @@ namespace WpfApp
             //    connection.Close();
             //}
             var query =
-            $"INSERT INTO [employment] VALUES(surname = @surname, name = @name, patronymic = @patronymic);";
+           $"INSERT INTO [employment] (surname, name, patronymic) VALUES(@surname, @name, @patronymic);";
             using (SqlConnection connection = new SqlConnection(ConnectionAdres))
             {
                 connection.Open();
@@ -218,11 +218,18 @@ namespace WpfApp
         public static void addSystemCharcterisitcs(string pcID, string processorName, string processorModel, string RAM, string opasity, string os)
         {
             var query =
-            $"INSERT INTO [systemCharacteristic] (PCID, processorName, processorModel, RAM, capacity, operatingSystem) VALUES('{pcID}', '{processorName}','{processorModel}', '{RAM}', '{opasity}','{os}');";
+            $"INSERT INTO [systemCharacteristic] (PCID, processorName, processorModel, RAM, capacity, operatingSystem) VALUES(@PCID, @processorName, @processorModel, @RAM, @capacity, @operatingSystem);";
             using (SqlConnection connection = new SqlConnection(ConnectionAdres))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("PCID", pcID);
+                command.Parameters.AddWithValue("processorName", processorName);
+                command.Parameters.AddWithValue("processorModel", processorModel);
+                command.Parameters.AddWithValue("RAM", RAM);
+                command.Parameters.AddWithValue("capacity", opasity);
+                command.Parameters.AddWithValue("operatingSystem", os);
+
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -233,11 +240,15 @@ namespace WpfApp
         public static void addHDD(string pcid, string company, string serialNumber, string space)
         {
             var query =
-            $"INSERT INTO [hardDrive] (PCID, company, serialNumber, space) VALUES('{pcid}', '{company}','{serialNumber}', '{space}');";
+            $"INSERT INTO [hardDrive] (PCID, company, serialNumber, space) VALUES(@PCID, @company, @serialNumber, @space);";
             using (SqlConnection connection = new SqlConnection(ConnectionAdres))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("PCID", pcid);
+                command.Parameters.AddWithValue("company", company);
+                command.Parameters.AddWithValue("serialNumber", serialNumber);
+                command.Parameters.AddWithValue("space", space);
                 command.ExecuteNonQuery();
                 connection.Close();
             }
