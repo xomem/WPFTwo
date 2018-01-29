@@ -40,5 +40,26 @@ namespace WpfApp
                 errorLabel.Content = "Поле должно быть заполненно";
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if(techID.Text != "")
+            {
+                Tech tech = Querys.GetTechDataByID(techID.Text);
+                if (tech != null)
+                {
+                    typeBox.Text = tech.type;
+                    firmBox.Text = tech.company;
+                    modelNumber.Text = tech.model;
+                    sirialNumber.Text = tech.serialNumber;
+                    buisnesNumber.Text = tech.businessNumber;
+
+                }
+            }
+            else
+            {
+                errorLabel.Content = "Поле должно быть заполненно";
+            }
+        }
     }
 }

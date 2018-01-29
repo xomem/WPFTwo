@@ -21,7 +21,6 @@ namespace WpfApp
     public partial class AddEmploy : Page
     {
         //private Querys querys;
-        Querys querys = new Querys();
 
         public AddEmploy()
         {

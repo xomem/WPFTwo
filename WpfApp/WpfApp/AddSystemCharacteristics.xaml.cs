@@ -20,7 +20,6 @@ namespace WpfApp
     /// </summary>
     public partial class AddSystemCharacteristics : Page
     {
-        Querys querys = new Querys();
 
         public AddSystemCharacteristics()
         {

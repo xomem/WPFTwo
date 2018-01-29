@@ -25,7 +25,6 @@ namespace WpfApp
 
         //SqlConnection SqlConnection;
         private MainMenu MainMenu;
-        Querys Query = new Querys();
 
         public MainWindow()
         {

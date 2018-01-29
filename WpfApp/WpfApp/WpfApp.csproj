@@ -106,6 +106,7 @@
     <Compile Include="hardDrive.cs">
       <DependentUpon>MainModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="HDD.cs" />
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -128,9 +129,11 @@
     <Compile Include="SimpleQueryResult.xaml.cs">
       <DependentUpon>SimpleQueryResult.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SysChar.cs" />
     <Compile Include="systemCharacteristic.cs">
       <DependentUpon>MainModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Tech.cs" />
     <Compile Include="technic.cs">
       <DependentUpon>MainModel.tt</DependentUpon>
     </Compile>

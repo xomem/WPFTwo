@@ -39,5 +39,25 @@ namespace WpfApp
         {
             NavigationService.GoBack();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (pcIDBOX.Text != "")
+            {
+                SysChar sysChar = Querys.GetSysCharDataByID(pcIDBOX.Text);
+                if (sysChar != null)
+                {
+                    prcessorFirm.Text = sysChar.processorName;
+                    prcessorModel.Text = sysChar.processorModel;
+                    RAM.Text = sysChar.RAM;
+                    opacty.Text = sysChar.capacity;
+                    OS.Text = sysChar.operatingSystem;
+                }
+            }
+            else
+            {
+                errorLabel.Content = "Поле должно быть заполненно";
+            }
+        }
     }
 }

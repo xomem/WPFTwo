@@ -15,14 +15,99 @@ using System.Windows.Data;
 
 namespace WpfApp
 {
-    public class Querys
+    public static class Querys
     {
         //static string ConnectionAdres = @"Data source=(LocalDB)\MSSQLLocalDB;Attachdbfilename=|DataDirectory|\MainDatabase.mdf;‌​Integrated Security=True;MultipleActiveResultSets=True;";
         //static string ConnectionAdres = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\MainDatabase.mdf;Integrated Security=True";
 
-        const string ConnectionAdres = @"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\MainDatabase.mdf;‌​integrated security=True;MultipleActiveResultSets=True;";
+        const string ConnectionAdres = @"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\MainDatabase.mdf;MultipleActiveResultSets=True;";
+        public static HDD GetHDDData(string id)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnectionAdres);
 
+            HDD hdd = null;
+            SqlCommand nameComand = new SqlCommand($"SELECT * FROM hardDrive WHERE PCID = '{id}';", sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader reader = nameComand.ExecuteReader();
+            reader.Read();
+            if (reader.HasRows)
+            {
+                var company = reader.GetString(1);
+                var serialNumber = reader.GetString(2);
+                var space = reader.GetString(3);
 
+                hdd = new HDD { company = company, serialNumber = serialNumber, space = space };
+            }
+            reader.Close();
+            sqlConnection.Close();
+            return hdd;
+        }
+        public static SysChar GetSysCharDataByID(string id)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnectionAdres);
+
+            SysChar sysChar = null;
+            SqlCommand nameComand = new SqlCommand($"SELECT * FROM systemCharacteristic WHERE PCID = '{id}';", sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader reader = nameComand.ExecuteReader();
+            reader.Read();
+            if (reader.HasRows)
+            {
+                var processorName = reader.GetString(1);
+                var processorModel = reader.GetString(2);
+                var RAM = reader.GetString(3);
+                var capacity = reader.GetString(4);
+                var operationgSystem = reader.GetString(5);
+
+                sysChar = new SysChar { processorName = processorName, processorModel = processorModel, RAM = RAM, capacity = capacity, operatingSystem = operationgSystem };
+            }
+            reader.Close();
+            sqlConnection.Close();
+            return sysChar;
+        }
+        public static Tech GetTechDataByID(string id)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnectionAdres);
+
+            Tech tech = null;
+            SqlCommand nameComand = new SqlCommand($"SELECT * FROM technic WHERE ID = '{id}';", sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader reader = nameComand.ExecuteReader();
+            reader.Read();
+            if (reader.HasRows)
+            {
+                var type = reader.GetString(1);
+                var company = reader.GetString(2);
+                var model = reader.GetString(3);
+                var businessNumber = reader.GetString(4);
+                var serialNumber = reader.GetString(5);
+
+                tech = new Tech { type = type, company = company, model = model, businessNumber  = businessNumber , serialNumber = serialNumber };
+            }
+            reader.Close();
+            sqlConnection.Close();
+            return tech;
+        }
+        public static Employer GetEmployDataByID(string id)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnectionAdres);
+
+            Employer employer = null;
+            SqlCommand nameComand = new SqlCommand($"SELECT * FROM employment WHERE ID = '{id}';", sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader reader = nameComand.ExecuteReader();
+            reader.Read();
+            if (reader.HasRows)
+            {
+                var name = reader.GetString(1);
+                var surname = reader.GetString(2);
+                var patronymic = reader.GetString(3);
+                employer = new Employer { name = name, surname = surname, patronymic = patronymic };
+            }
+            reader.Close();
+            sqlConnection.Close();
+            return employer;
+        }
         public static bool updateSysChar(string id, string processorName, string processorModel, string RAM, string capacity, string operatingSystem)
         {
 
@@ -63,6 +148,31 @@ namespace WpfApp
                 connection.Close();
             }
             return result;
+        }
+        public static void addEmploy(string name, string surname, string patronymic)
+        {
+            //var query =
+            //$"INSERT INTO [employment] (surname, name, patronymic) VALUES('{name}', '{surname}','{patronymic}');";
+            //using (SqlConnection connection = new SqlConnection(ConnectionAdres))
+            //{
+            //    connection.Open();
+            //    SqlCommand command = new SqlCommand(query, connection);
+            //    command.ExecuteNonQuery();
+            //    connection.Close();
+            //}
+            var query =
+            $"INSERT INTO [employment] VALUES(surname = @surname, name = @name, patronymic = @patronymic);";
+            using (SqlConnection connection = new SqlConnection(ConnectionAdres))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("surname", surname);
+                command.Parameters.AddWithValue("name", name);
+                command.Parameters.AddWithValue("patronymic", patronymic);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+
         }
         public static bool updateTech(string id, string type, string firm, string model, string sirialNumber, string buisnesNumber)
         {
@@ -119,19 +229,7 @@ namespace WpfApp
 
         }
 
-        public static void addEmploy(string name, string surname, string patronymic)
-        {
-            var query =
-            $"INSERT INTO [employment] (surname, name, patronymic) VALUES('{name}', '{surname}','{patronymic}');";
-            using (SqlConnection connection = new SqlConnection(ConnectionAdres))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
 
-        }
         public static void addHDD(string pcid, string company, string serialNumber, string space)
         {
             var query =
@@ -203,12 +301,11 @@ namespace WpfApp
             DataTable dt = new DataTable("Call Reciept");
             da.Fill(dt);
             return dt;
-
         }
-        public static DataTable hardDriveByEmploy(string roomNumber)
+        public static DataTable hardDriveByEmploy(string employID)
         {
 
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM hardDrive INNER JOIN employment ON hardDrive.PCID = employment.ID WHERE room.roomNumber = " + roomNumber, ConnectionAdres);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM hardDrive INNER JOIN employment ON hardDrive.PCID = employment.ID WHERE employment.ID = " + employID, ConnectionAdres);
             DataTable dt = new DataTable("Call Reciept");
             da.Fill(dt);
             return dt;

@@ -43,7 +43,20 @@ namespace WpfApp
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            if(employID.Text != "")
+            {
+                Employer employer = Querys.GetEmployDataByID(employID.Text);
+                if (employer != null)
+                {
+                    nameBox.Text = employer.name;
+                    srunameBox.Text = employer.surname;
+                    patronymicBox.Text = employer.patronymic;
+                }
+            }
+            else
+            {
+                errorLabel.Content = "Поле должно быть заполннено";
+            }
         }
     }
 }

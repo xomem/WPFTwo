@@ -41,5 +41,23 @@ namespace WpfApp
                 errorLabel.Content = "Поле должно быть заполннено";
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (hddID.Text != "")
+            {
+                HDD hdd = Querys.GetHDDData(hddID.Text);
+                if (hdd != null)
+                {
+                    company.Text = hdd.company;
+                    serialNumber.Text = hdd.serialNumber;
+                    space.Text = hdd.space;
+                }
+            }
+            else
+            {
+                errorLabel.Content = "Поле должно быть заполннено";
+            }
+        }
     }
 }

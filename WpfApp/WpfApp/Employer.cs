@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data.SqlClient;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Data;
+using System.Windows.Controls;
+using System.Windows;
+using System.Windows.Data;
 namespace WpfApp
 {
-    class Employer
+    public class Employer
     {
-        static string ConnectionAdres = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SOVAJJ\Google Drive\WpfApp\WpfApp\MainDatabase.mdf;Integrated Security=True";
 
 
         public string name { get; set; }
@@ -16,11 +21,9 @@ namespace WpfApp
         public string patronymic { get; set; }
 
 
-        public void GetDataByID(string id)
-        {
+
+        
+
 
         }
-
-
-    }
 }

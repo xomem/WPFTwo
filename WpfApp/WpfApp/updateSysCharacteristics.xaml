@@ -41,7 +41,7 @@
             <TextBox x:Name="pcIDBOX"
                 Grid.Row="0"
                 Grid.Column="1"
-                Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Width="500" Margin="0,0,138,0" Height="28" />
+                Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Margin="0,8,227,8" Height="28" />
             <TextBox x:Name="prcessorFirm"
                 Grid.Row="4"
                 Grid.Column="1"
@@ -75,6 +75,7 @@
                 Grid.Column="1"
                 Text="{Binding Patronymic, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Width="500" Margin="0,204,138,-215" Height="28" />
             <Label Content="" HorizontalAlignment="Left" Margin="77,35,0,0" VerticalAlignment="Top" Width="349" Background="White" Foreground="Red" x:Name="errorLabel" Grid.RowSpan="5"/>
+            <Button Content="Получить данные" Grid.Column="1" HorizontalAlignment="Left" Margin="456,11,0,0" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.32,-0.3" FontSize="18" Cursor="Hand" Click="Button_Click_1"/>
 
         </Grid>
         <Button
